@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Task
 
 def index(request):
-    return render(request, 'Web_Site/index.html')
-
-def Hello(request):
-    return HttpResponse('<h1>Hello, have a nice day! :)</h1>')
+    tasks = Task.objects.order_by('-id')
+    return render(request, 'Web_Site/index.html', {'title': 'Главная страница', 'tasks': tasks})
 
 def About_us(request):
     return render(request, 'Web_Site/about.html')
