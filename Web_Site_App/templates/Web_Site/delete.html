@@ -1,0 +1,14 @@
+{% extends 'Web_Site/base.html' %}
+
+{% block title %}
+Удалить задачу
+{% endblock %}
+
+{% block content %}
+<h1>Удаление задач</h1>
+<from method="post">
+    <input type ="text" placeholder="Введите название" class="form-control"><br>
+    <button type = "submit" class="btn btn-success">Удалить</button>
+
+</from>
+{% endblock %}

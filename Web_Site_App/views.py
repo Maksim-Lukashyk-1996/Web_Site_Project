@@ -11,3 +11,6 @@ def About_us(request):
 
 def Create(request):
     return render(request, 'Web_Site/create.html')
+
+def Delete(request):
+    return render(request, 'Web_Site/delete.html')
