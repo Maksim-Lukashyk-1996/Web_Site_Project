@@ -8,3 +8,6 @@ def index(request):
 
 def About_us(request):
     return render(request, 'Web_Site/about.html')
+
+def Create(request):
+    return render(request, 'Web_Site/create.html')
