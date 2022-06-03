@@ -6,13 +6,6 @@ from .forms import TaskForm
 from .forms import TaskForm
 
 def index(request):
-    if request.method == 'POST':
-        error = ''
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-        else:
-            error = 'Неверная форма'
     tasks = Task.objects.order_by('-id')
     return render(request, 'Web_Site/index.html', {'title': 'Главная страница', 'tasks': tasks})
 
@@ -20,6 +13,11 @@ def About_us(request):
     return render(request, 'Web_Site/about.html')
 
 def Create(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+
     form = TaskForm()
     context = {
         'form': form
